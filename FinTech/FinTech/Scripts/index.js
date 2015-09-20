@@ -288,6 +288,47 @@ var retailChart = new Chart(document.getElementById("retailChart").getContext("2
 var b2bChart = new Chart(document.getElementById("b2bChart").getContext("2d")).Line(b2bData, options);
 var startupChart = new Chart(document.getElementById("startupChart").getContext("2d")).Line(startupData, options);
 
+
+var EBITDAdat = [];
+var EBITDAdata = {
+    labels: ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""],
+    datasets: [{
+        label: "My Second dataset",
+        fillColor: "rgba(9,187,205,0.2)",
+        strokeColor: "rgba(9,187,205,1)",
+        pointColor: "rgba(9,187,205,1)",
+        pointStrokeColor: "#fff",
+        pointHighlightFill: "#fff",
+        pointHighlightStroke: "rgba(9,187,205,1)",
+        data: EBITDAdat
+    }]
+};
+
+var EBITDAchart = new Chart(document.getElementById("EBITDAchart").getContext("2d")).Line(EBITDAdata, options);
+model.EBITDA.subscribe(function (newValue) {
+    EBITDAchart.destroy();
+    var ctx = document.getElementById("EBITDAchart").getContext("2d");
+    EBITDAdat = model.selectedCurve().map(function (elem) {
+        return elem * model.getGain() - model.getFullCost();
+    });
+    
+    EBITDAdata = {
+        labels: ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""],
+        datasets: [{
+            label: "My Second dataset",
+            fillColor: "rgba(9,187,205,0.2)",
+            strokeColor: "rgba(9,187,205,1)",
+            pointColor: "rgba(9,187,205,1)",
+            pointStrokeColor: "#fff",
+            pointHighlightFill: "#fff",
+            pointHighlightStroke: "rgba(9,187,205,1)",
+            data: EBITDAdat
+        }]
+    };
+
+    EBITDAchart = new Chart(ctx).Line(EBITDAdata, options);
+});
+
 ko.applyBindings(model);
 
 function bindShit() {
