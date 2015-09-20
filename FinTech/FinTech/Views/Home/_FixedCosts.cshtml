@@ -1,0 +1,51 @@
+﻿<div class="col-md-8">
+    <div class="panel">
+        <div class="panel-heading">
+            <span class="panel-title">
+                <i class="panel-title-icon fa fa-flask"></i>
+                Постоянные издержки
+            </span>
+        </div>
+        <div class="panel-body">
+            <div data-bind="foreach: allFixedCosts">
+                <div class="row">
+                    <div class="col-md-4">
+                        <label class="control-label" data-bind="text: name"></label>
+                        <div class="input-group input-group-lg">
+                            <span class="input-group-addon bg-info no-border">
+                                <a href="#" class="editable editable-click">$</a>
+                            </span>
+                            <input type="text" class="form-control" data-bind="value: cost, valueUpdate: 'afterkeydown'">
+                        </div>
+                    </div>
+                    <div class="col-md-8" style="padding-top: 20px;">
+                        <div style="margin-top: 20px;" data-bind="slider: cost, valueUpdate: 'afterkeydown', sliderOptions: {min: 0, max: 100, range: 'min', step: 1}"></div>
+                    </div>
+                </div>
+                <br />
+            </div>
+
+            <hr />
+
+            <div class="row">
+                <div class="col-md-6">
+                    <select id="jquery-select2-example" class="form-control" data-bind="value: selectedNewFixedCostName">
+                        <option></option>
+                        <optgroup label="Он-лайн бизнес">
+                            <option value="Хостинг серверов">Хостинг серверов</option>
+                            <option value="Покупа SSL сертификатов">Покупа SSL сертификатов</option>
+                        </optgroup>
+                        <optgroup label="Офф-лайн бизнес">
+                            <option value="Транспортные расходы">Транспортные расходы</option>
+                            <option value="Чай, кофе, печенье">Чай, кофе, печенье</option>
+                        </optgroup>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <button class="btn btn-info" data-bind="click: addFixedCost">Добавить статью расходов</button>
+                </div>
+            </div>
+
+        </div>
+    </div> <!-- PANEL BODY -->
+</div> <!-- PANEL -->

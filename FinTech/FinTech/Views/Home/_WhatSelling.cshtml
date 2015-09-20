@@ -1,0 +1,115 @@
+﻿<div class="col-md-8">
+    <div class="panel">
+        <div class="panel-heading">
+            <i class="panel-title-icon fa fa-flask"></i>
+            <span class="panel-title">Что вы продаете?</span>
+        </div>
+
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-4">
+
+                    <h6 class="text-light-gray text-semibold text-xs" style="margin:0 0 10px 0;">Тип бизнеса</h6>
+
+                    <select class="form-control form-group-margin">
+                        <option></option>
+                        <option>Ресторанный бизнес</option>
+                        <option>Консалтинг</option>
+                        <option>Аутсорс разработки</option>
+                        <option>Оптовая торговля</option>
+                        <option>Ресторанный бизнес</option>
+                        <option>Сфера услуг</option>
+                    </select>
+                </div>
+            </div>
+
+            <hr />
+            <div data-bind="foreach: allProducts">
+                <div data-bind="if: isEditing">
+                    <br>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group has-success has-feedback">
+                                <label class="control-label">Название продукта</label>
+                                <input class="form-control input-lg" data-bind="value: name" type="text">
+
+                            </div>
+                        </div>
+                        <div class="col-md-8" style="padding-top: 30px;">
+                            <a href="javascript:void(0)" class="editable editable-click namevarPr">Junior Developer</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="javascript:void(0)" class="editable editable-click namevarPr">Senior Developer</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="javascript:void(0)" class="editable editable-click namevarPr">Manager</a>&nbsp;&nbsp;&nbsp;&nbsp;
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label class="control-label">Стоимость за единицу</label>
+                            <div class="input-group input-group-lg">
+                                <span class="input-group-addon bg-danger no-border">
+                                    <a href="#" class="editable editable-click">$</a>
+                                </span>
+                                <input type="text" id="costPerUnit" data-bind="value: costPerUnit, valueUpdate: 'afterkeydown'" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-md-8" style="padding-top: 40px;">
+                            <div data-bind="slider: costPerUnit, sliderOptions: {min: 0, max: 1000, range: 'min', step: 1}"></div>
+                        </div>
+                    </div>
+
+                    <br />
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label class="control-label">Максимум продаж в месяц</label>
+                            <div class="input-group input-group-lg">
+                                <span class="input-group-addon bg-info no-border">
+                                    <a href="#" class="editable editable-click">шт</a>
+                                </span>
+                                <input data-bind="value: salesPerMonth, valueUpdate: 'afterkeydown'" id="salesPerMonth" type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-md-8" style="padding-top: 40px;">
+                            <div data-bind="slider: salesPerMonth, sliderOptions: {min: 0, max: 1000, range: 'min', step: 1}"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div data-bind="ifnot: isEditing">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <h3 data-bind="text: name"></h3>
+                                </div>
+                            </div>
+
+                            <br>
+
+                        </div>
+                        <div class="col-md-4">
+                            <ul class="list-group no-border">
+                                <li class="list-group-item no-border">
+                                    <span class="badge badge-success" data-bind="text: '$' + salesPerMonth()*costPerUnit()"></span>
+                                    <div class="text-s" data-bind="text: 'Выручка' + '/мес'"></div>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div> 
+                </div>
+                <hr />
+
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <button class="btn btn-info" data-bind="click: addProduct">+ Добавить еще продукт</button>
+                </div>
+                <div class="col-md-4">
+                    <button class="btn btn-success" data-bind="click: sealProducts">Готово</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

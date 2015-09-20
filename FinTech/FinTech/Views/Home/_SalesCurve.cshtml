@@ -1,0 +1,30 @@
+﻿@{ 
+    int chartWidth = 180, chartHeight = 130;
+}
+
+<div class="col-md-8">
+    <div class="panel">
+        <div class="panel-heading">
+            <span class="panel-title">
+                <i class="panel-title-icon fa fa-flask"></i>
+                Кривая продаж
+            </span>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-4">
+                    <h3 style="text-align: center;"><a href="javascript:void(0)" data-bind="click: function(){ selectCurve(1) }" class="editable editable-click">Ритейл</a></h3>
+                    <canvas id="retailChart" width="@(chartWidth)" height="@(chartHeight)"></canvas>
+                </div>
+                <div class="col-md-4">
+                    <h3 style="text-align: center;"><a href="javascript:void(0)" data-bind="click: function(){ selectCurve(2) }" class="editable editable-click">B2B</a></h3>
+                    <canvas id="b2bChart" width="@(chartWidth)" height="@(chartHeight)"></canvas>
+                </div>
+                <div class="col-md-4">
+                    <h3 style="text-align: center;"><a href="javascript:void(0)" data-bind="click: function(){ selectCurve(3) }" class="editable editable-click">Стартап</a></h3>
+                    <canvas id="startupChart" width="@(chartWidth)" height="@(chartHeight)"></canvas>
+                </div>
+            </div>
+        </div> 
+    </div> 
+</div>

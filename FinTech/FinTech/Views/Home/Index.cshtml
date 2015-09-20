@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <link href="~/Scripts/css.css" rel="stylesheet" type="text/css">
+    <link href="~/assets/stylesheets/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="~/assets/stylesheets/landerapp.min.css" rel="stylesheet" type="text/css">
+    <link href="~/assets/stylesheets/widgets.min.css" rel="stylesheet" type="text/css">
+    <link href="~/assets/stylesheets/rtl.min.css" rel="stylesheet" type="text/css">
+    <link href="~/assets/stylesheets/themes.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+</head>
+
+<body class="theme-default main-menu-animated">
+    <div id="main-wrapper">
+
+        @Html.Partial("_WhatSelling")
+
+        <div class="col-md-4">
+            <div class="panel">
+                <div class="panel-heading">
+                    <span class="panel-title">Продажи по продуктам</span>
+                </div>
+                <div class="panel-body">
+                    <div class="graph-container">
+                        <div id="hero-donut" class="graph"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        @Html.Partial("_SalesCurve")
+
+        @Html.Partial("_ProductionCosts")
+
+        @Html.Partial("_StuffSalary")
+
+        @Html.Partial("_FixedCosts")
+
+        @Html.Partial("_OperationalAnalysis")
+
+        @Html.Partial("_WhatNext")
+
+    </div> 
+
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script src="~/Scripts/jquery-ui.js"></script>
+    <script src="~/assets/javascripts/bootstrap.min.js"></script>
+    <script src="~/assets/javascripts/landerapp.min.js"></script>
+    <script src="~/assets/javascripts/Chart.js"></script>
+    <script src="~/assets/javascripts/knockout-3.3.0.js"></script>
+    <script src="~/Scripts/index.js"></script>
+</body>
+</html>

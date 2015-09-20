@@ -1,0 +1,105 @@
+﻿<div class="col-md-8">
+    <div class="panel">
+        <!-- STAFF AD SALARY-->
+        <div class="panel-heading">
+            <span class="panel-title">
+                <i class="panel-title-icon fa fa-flask"></i>
+                Персонал и заработная плата
+            </span>
+        </div>
+        <div class="panel-body">
+
+            <div data-bind="foreach: allStuff">
+                <div data-bind="if: isEditing">
+                    <br>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group has-success has-feedback">
+                                <label class="control-label">Группа персонала</label>
+                                <input class="form-control input-lg" data-bind="value: name" type="text">
+
+                            </div>
+                        </div>
+                        <div class="col-md-8" style="padding-top: 30px;">
+                            <a href="javascript:void(0)" class="editable editable-click namevarStf">Junior Developer</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="javascript:void(0)" class="editable editable-click namevarStf">Senior Developer</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a href="javascript:void(0)" class="editable editable-click namevarStf">Manager</a>&nbsp;&nbsp;&nbsp;&nbsp;
+
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label class="control-label">Почасовая ставка</label>
+                            <div class="input-group input-group-lg">
+                                <span class="input-group-addon bg-danger no-border">
+                                    <a href="#" class="editable editable-click">$</a>
+                                </span>
+                                <input type="text" id="rate" data-bind="value: rate, valueUpdate: 'afterkeydown'" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-md-8" style="padding-top: 40px;">
+                            <div data-bind="slider: rate, valueUpdate: 'afterkeydown', sliderOptions: {min: 0, max: 100, range: 'min', step: 1}"></div>
+                        </div>
+                    </div>
+
+                    <br />
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label class="control-label">Количество</label>
+                            <div class="input-group input-group-lg">
+                                <span class="input-group-addon bg-info no-border">
+                                    <a href="#" class="editable editable-click">шт</a>
+                                </span>
+                                <input data-bind="value: headcount, valueUpdate: 'afterkeydown'" id="headcount" type="text" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-md-8" style="padding-top: 40px;">
+                            <div data-bind="slider: headcount, sliderOptions: {min: 0, max: 100, range: 'min', step: 1}"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div data-bind="ifnot: isEditing">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <h3 data-bind="text: name"></h3>
+                                </div>
+                            </div>
+
+                            <br>
+
+                        </div>
+                        <div class="col-md-4">
+                            <ul class="list-group no-border">
+                                <li class="list-group-item no-border">
+                                    <span class="badge badge-info" data-bind="text: headcount"></span>
+                                    <div class="text-s" data-bind="text: 'Численность'"></div>
+                                </li>
+                                <li class="list-group-item no-border">
+                                    <span class="badge badge-danger" data-bind="text: '$' + rate()"></span>
+                                    <div class="text-s" data-bind="text: 'Ставка'"></div>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+                <hr />
+
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <button class="btn btn-info" data-bind="click: addStuff">+ Добавить еще персонал</button>
+                </div>
+                <div class="col-md-4">
+                    <button class="btn btn-success" data-bind="click: sealStuff">Готово</button>
+                </div>
+            </div>
+
+        </div>
+    </div> <!-- PANEL BODY -->
+</div> <!-- PANEL -->
