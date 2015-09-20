@@ -28,18 +28,17 @@
 
             @Html.Partial("_WhatNext")
         </div>
-
-            <div class="col-md-4">
-                <div class="panel">
-                    <div class="panel-heading">
-                        <span class="panel-title">Продажи по продуктам</span>
-                    </div>
-                    <div class="panel-body">
-                        <div class="graph-container">
-                            <div id="hero-donut" class="graph"></div>
-                        </div>
+        <div class="col-md-4">
+            <div class="panel">
+                <div class="panel-heading">
+                    <span class="panel-title">Продажи по продуктам</span>
+                </div>
+                <div class="panel-body">
+                    <div class="graph-container">
+                        <canvas id="EBITDAchart" width="250" height="200"></canvas>
                     </div>
                 </div>
+            </div>
                 <div class="panel">
                     <div class="panel-heading">
                         <span class="panel-title">Финансовые отчеты</span>
@@ -96,17 +95,18 @@
                 </div>
 
             </div>
+            </div>
 
-          
 
-        </div> 
 
-    <script src="~/Scripts/jquery-1.10.2.js"></script>
-    <script src="~/Scripts/jquery-ui.js"></script>
-    <script src="~/assets/javascripts/bootstrap.min.js"></script>
-    <script src="~/assets/javascripts/landerapp.min.js"></script>
-    <script src="~/assets/javascripts/Chart.js"></script>
-    <script src="~/assets/javascripts/knockout-3.3.0.js"></script>
-    <script src="~/Scripts/index.js"></script>
+        </div>
+
+        <script src="~/Scripts/jquery-1.10.2.js"></script>
+        <script src="~/Scripts/jquery-ui.js"></script>
+        <script src="~/assets/javascripts/bootstrap.min.js"></script>
+        <script src="~/assets/javascripts/landerapp.min.js"></script>
+        <script src="~/assets/javascripts/Chart.js"></script>
+        <script src="~/assets/javascripts/knockout-3.3.0.js"></script>
+        <script src="~/Scripts/index.js"></script>
 </body>
 </html>

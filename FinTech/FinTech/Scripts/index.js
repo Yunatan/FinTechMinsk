@@ -156,6 +156,38 @@ var myViewModel = function () {
         retailCurve: [0.04, 0.08, 0.12, 0.16, 0.20, 0.24, 0.28, 0.32, 0.36, 0.40, 0.44, 0.48, 0.52, 0.56, 0.60, 0.64, 0.68, 0.72, 0.76, 0.80, 0.84, 0.88, 0.92, 0.96, 1.00, 1.00, 1.00, 1.00, 1.00, 1.00, 1.00, 1.00, 1.00, 1.00, 1.00, 1.00, 1.00, 1.00, 1.00, 1.00, 1.00, 1.00, 1.00, 1.00, 1.00, 1.00, 1.00, 1.00, 1.00, 1.00, 1.00, 1.00, 1.00, 1.00, 1.00, 1.00, 1.00, 1.00, 1.00, 1.00],
         b2bCurve: [0.00, 0.00, 0.00, 0.00, 0.00, 0.30, 0.30, 0.30, 0.30, 0.30, 0.30, 0.30, 0.30, 0.30, 0.30, 0.30, 0.30, 0.39, 0.39, 0.39, 0.39, 0.39, 0.39, 0.39, 0.39, 0.39, 0.39, 0.39, 0.39, 0.51, 0.51, 0.51, 0.51, 0.51, 0.51, 0.51, 0.51, 0.51, 0.51, 0.51, 0.51, 0.66, 0.66, 0.66, 0.66, 0.66, 0.66, 0.66, 0.66, 0.66, 0.66, 0.86, 0.86, 0.86, 0.86, 0.86, 0.86, 0.86, 0.86, 0.86]
     };
+
+    this.getGain = function () {
+        var margin = 0;
+        for (var i = this.allProductionCosts().length - 1; i >= 0; i--) {
+            margin += (this.allProducts()[i].costPerUnit() - this.allProductionCosts()[i].productionCost()) * this.allProducts()[i].salesPerMonth();
+        };
+        return margin;
+    };
+
+    this.getFullCost = function () {
+        var result = 0;
+        for (var i = this.allFixedCosts().length - 1; i >= 0; i--) {
+            result += this.allFixedCosts()[i].cost();
+        };
+        for (var i = this.allStuff().length - 1; i >= 0; i--) {
+            result += this.allStuff()[i].rate() * this.allStuff()[i].headcount();
+        };
+        return result;
+    };
+
+    this.EBITDA = ko.computed(function () {
+        var result = 0;
+        var gain = this.getGain();
+        var fullCost = this.getFullCost();
+
+        for (var i = this.selectedCurve().length - 1; i >= 0; i--) {
+            result += gain * this.selectedCurve()[i] - fullCost;
+        };
+
+        return result;
+
+    }, this);
 };
 
 var model = new myViewModel();
