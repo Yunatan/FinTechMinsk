@@ -188,6 +188,50 @@ var myViewModel = function () {
         return result;
 
     }, this);
+
+    this.investNeed = ko.computed(function () {
+        var result = 0;
+        var gain = this.getGain();
+        var fullCost = this.getFullCost();
+
+        for (var i = this.selectedCurve().length - 1; i >= 0; i--) {
+            var a = gain * this.selectedCurve()[i] - fullCost;
+            result += a >= 0 ? 0 : a;
+        };
+
+        return -result;
+
+    }, this);
+
+    this.breakEvenPoint = ko.computed(function () {
+        var gain = this.getGain();
+        var fullCost = this.getFullCost();
+
+        for (var i = 1; i <= this.selectedCurve().length; i++) {
+            var a = gain * this.selectedCurve()[i] - fullCost;
+            if (a >= 0) {
+                return Number(i / 12).toPrecision(2);
+            }
+        };
+
+        return "Не достижима";
+
+    }, this);
+
+    this.revenue5Years = ko.computed(function () {
+        var result = 0;
+
+        var incom = 0;
+        for (var i = this.allProducts().length - 1; i >= 0; i--) {
+            incom += this.allProducts()[i].costPerUnit() * this.allProducts()[i].salesPerMonth();
+        };
+
+        for (var i = this.selectedCurve().length - 1; i >= 0; i--) {
+            result += this.selectedCurve()[i] * incom;
+        };
+
+        return result;
+    }, this);
 };
 
 var model = new myViewModel();

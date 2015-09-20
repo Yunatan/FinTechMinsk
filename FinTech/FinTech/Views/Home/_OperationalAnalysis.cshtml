@@ -16,24 +16,24 @@
                         <tbody>
                             <tr>
                                 <td>Точка безубыточности</td>
-                                <td><div class="text-semibold text-bg">2.5 года</div></td>
+                                <td><div class="text-semibold text-bg" data-bind="text: breakEvenPoint() + ' лет'"></div></td>
 
                             </tr>
                             <tr>
                                 <td>Потребность в финансировании оборотного капитала</td>
-                                <td><div class="text-semibold text-bg">$688K 
+                                <td><div class="text-semibold text-bg" data-bind="text: '$' + investNeed().toFixed(0).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');"> 
 								&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 								<button class="btn btn-info btn-sm">Рассчитать график</button></div></td>
 
                             </tr>
                             <tr>
                                 <td>Выручка за 5 лет</td>
-                                <td><div class="text-semibold text-bg">$6.8M</div></td>
+                                <td><div class="text-semibold text-bg" data-bind="text: '$' + revenue5Years().toFixed(0).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');"></div></td>
 
                             </tr>
                             <tr>
                                 <td>EBITDA за 5 лет</td>
-                                <td><div class="text-semibold text-bg" data-bind="text: '$' + EBITDA()"></div></td>
+                                <td><div class="text-semibold text-bg" data-bind="text: '$' + EBITDA().toFixed(0).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');"></div></td>
 
                             </tr>
                             <tr>
