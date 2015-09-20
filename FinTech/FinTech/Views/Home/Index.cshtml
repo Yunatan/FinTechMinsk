@@ -12,90 +12,94 @@
 
 <body class="theme-default main-menu-animated">
     <div id="main-wrapper">
+        <div class="col-md-8">
 
-        @Html.Partial("_WhatSelling")
+            @Html.Partial("_WhatSelling")
 
-        <div class="col-md-4">
-            <div class="panel">
-                <div class="panel-heading">
-                    <span class="panel-title">Продажи по продуктам</span>
-                </div>
-                <div class="panel-body">
-                    <div class="graph-container">
-                        <div id="hero-donut" class="graph"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="panel">
-                <div class="panel-heading">
-                    <span class="panel-title">Финансовые отчеты</span>
-                </div>
-                <div class="panel-body">
+            @Html.Partial("_SalesCurve")
 
-                    <div class="stat-panel">
-                        <div class="stat-row">
-                            <!-- Info background, without padding, horizontally centered text, super large text -->
-                            <a href="#" class="stat-cell bg-info no-padding text-center">
-                                &nbsp;
-                            </a>
-                        </div> <!-- /.stat-row -->
-                        <div class="stat-row">
-                            <!-- Bordered, without top border, horizontally centered text, large text -->
-                            <a href="#" class="stat-cell bordered no-border-t text-center text-lg">
-                                <i class="fa fa-cloud-download"></i><strong> Cashflow</strong>
-                            </a>
-                        </div> <!-- /.stat-row -->
-                    </div>
-                    <div class="stat-panel">
-                        <div class="stat-row">
-                            <!-- Info background, without padding, horizontally centered text, super large text -->
-                            <a href="#" class="stat-cell bg-info no-padding text-center">
-                                &nbsp;
-                            </a>
-                        </div> <!-- /.stat-row -->
-                        <div class="stat-row">
-                            <!-- Bordered, without top border, horizontally centered text, large text -->
-                            <a href="#" class="stat-cell bordered no-border-t text-center text-lg">
-                                <i class="fa fa-cloud-download"></i><strong> Profit & Loss</strong>
-                            </a>
-                        </div> <!-- /.stat-row -->
-                    </div>
-                    <div class="stat-panel">
-                        <div class="stat-row">
-                            <!-- Info background, without padding, horizontally centered text, super large text -->
-                            <a href="#" class="stat-cell bg-info no-padding text-center">
-                                &nbsp;
-                            </a>
-                        </div> <!-- /.stat-row -->
-                        <div class="stat-row">
-                            <!-- Bordered, without top border, horizontally centered text, large text -->
-                            <a href="#" class="stat-cell bordered no-border-t text-center text-lg">
-                                <i class="fa fa-cloud-download"></i><strong> Balance sheet</strong>
-                            </a>
-                        </div> <!-- /.stat-row -->
-                    </div>
+            @Html.Partial("_ProductionCosts")
 
+            @Html.Partial("_StuffSalary")
 
+            @Html.Partial("_FixedCosts")
 
+            @Html.Partial("_OperationalAnalysis")
 
-                </div>
-            </div>
-
+            @Html.Partial("_WhatNext")
         </div>
 
-        @Html.Partial("_SalesCurve")
+            <div class="col-md-4">
+                <div class="panel">
+                    <div class="panel-heading">
+                        <span class="panel-title">Продажи по продуктам</span>
+                    </div>
+                    <div class="panel-body">
+                        <div class="graph-container">
+                            <div id="hero-donut" class="graph"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel">
+                    <div class="panel-heading">
+                        <span class="panel-title">Финансовые отчеты</span>
+                    </div>
+                    <div class="panel-body">
 
-        @Html.Partial("_ProductionCosts")
+                        <div class="stat-panel">
+                            <div class="stat-row">
+                                <!-- Info background, without padding, horizontally centered text, super large text -->
+                                <a href="#" class="stat-cell bg-info no-padding text-center">
+                                    &nbsp;
+                                </a>
+                            </div> <!-- /.stat-row -->
+                            <div class="stat-row">
+                                <!-- Bordered, without top border, horizontally centered text, large text -->
+                                <a href="#" class="stat-cell bordered no-border-t text-center text-lg">
+                                    <i class="fa fa-cloud-download"></i><strong> Cashflow</strong>
+                                </a>
+                            </div> <!-- /.stat-row -->
+                        </div>
+                        <div class="stat-panel">
+                            <div class="stat-row">
+                                <!-- Info background, without padding, horizontally centered text, super large text -->
+                                <a href="#" class="stat-cell bg-info no-padding text-center">
+                                    &nbsp;
+                                </a>
+                            </div> <!-- /.stat-row -->
+                            <div class="stat-row">
+                                <!-- Bordered, without top border, horizontally centered text, large text -->
+                                <a href="#" class="stat-cell bordered no-border-t text-center text-lg">
+                                    <i class="fa fa-cloud-download"></i><strong> Profit & Loss</strong>
+                                </a>
+                            </div> <!-- /.stat-row -->
+                        </div>
+                        <div class="stat-panel">
+                            <div class="stat-row">
+                                <!-- Info background, without padding, horizontally centered text, super large text -->
+                                <a href="#" class="stat-cell bg-info no-padding text-center">
+                                    &nbsp;
+                                </a>
+                            </div> <!-- /.stat-row -->
+                            <div class="stat-row">
+                                <!-- Bordered, without top border, horizontally centered text, large text -->
+                                <a href="#" class="stat-cell bordered no-border-t text-center text-lg">
+                                    <i class="fa fa-cloud-download"></i><strong> Balance sheet</strong>
+                                </a>
+                            </div> <!-- /.stat-row -->
+                        </div>
 
-        @Html.Partial("_StuffSalary")
 
-        @Html.Partial("_FixedCosts")
 
-        @Html.Partial("_OperationalAnalysis")
 
-        @Html.Partial("_WhatNext")
+                    </div>
+                </div>
 
-    </div> 
+            </div>
+
+          
+
+        </div> 
 
     <script src="~/Scripts/jquery-1.10.2.js"></script>
     <script src="~/Scripts/jquery-ui.js"></script>
