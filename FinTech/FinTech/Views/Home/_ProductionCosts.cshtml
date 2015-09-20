@@ -14,16 +14,14 @@
                             <h2 data-bind="text: name"></h2>
                         </div>
                         <div class="col-md-6">
-                            <div class="col-md-8">
-                                <span class="badge badge-primary" data-bind="text: '$' + costPerUnit()"></span>
-                                <div class="text-xs">Цена за 1 единицу</div>
+                            <ul class="list-group no-border">
+                                <li class="list-group-item no-border">
+                                    <span class="badge badge-primary" data-bind="text: '$' + costPerUnit()"></span>
+                                    <div class="text-xs">Цена за 1 единицу</div>
+                                    </li>
+                            </ul>
 
-                            </div>
-                            <div class="col-md-4">
-                                <div class="graph-container">
-                                    <div id="jq-flot-pie"></div>
-                                </div>
-                            </div>
+
                         </div>
                     </div> <!-- ROW -->
 
